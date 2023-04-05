@@ -13,8 +13,8 @@
             </header>
             <ul>
                 <li class="nav-li" id="operator">Let's start with operators!</li>
-                <li class="nav-li"></li>
-                <li class="nav-li"></li>
+                <li class="nav-li" id="data-position">Why ['foo'] is not equal to ['foo']?</li>
+                <li class="nav-li" id="type-coercion">So what is "Type Coercion"?</li>
                 <li class="nav-li"></li>
                 <li class="nav-li"></li>
             </ul>
@@ -46,24 +46,44 @@
                         <br>const eval = mark > 5 ? "Above average" : mark == 5 ? "Average" : "Below average";
                     </code>
                     <br>which is ways more clean and efficient!
+                    <br><span class="emoji">&#9888;</span> Though convenient, there is a limitation for this operator: What it does after checking the boolean argument is returning the corresponding value, so if you put a full function or object it may not return what you want it to, so make sure to check!
                     </p>
                 </div>
             </section>
             <section class="main-section">
-                <header class='section-header'>
-
+                <header class='section-header' id="data-position">
+                    Why ['foo'] is not equal to ['foo']?
                 </header>
                 <div class="header-div"></div>
                 <div class="content-block">
-                    
+                    Have you ever code something along the lines of:
+                    <br>
+                    <code>const arr1 = [];
+                        <br>if (arr1 === []) {
+                        <br>return "Hello world!";
+                        <br>}
+                    </code>
+                    <br>and got confused as to why it doesn't run like you'd like it to? Then you fiddled around a bit and found out that things get even weirder:
+                    <code>
+                        <br>arr1 == [] //false
+                        <br>arr1 == "" //true
+                    </code>
+                    <br>This is because of two features of JavaScript: Object identity and Type Coercion.
+                    <ul>
+                        <li class="content">Object identity: The content of an object, when created, are stored at a specific location in the storage space, which makes it distincts from other objects that have the same content, this is called the "identity" of an object. </li>
+                        <li class="content">Type Coercion: Is the process of converting value from one type to another, with is done automatically by the language in certain circumstances. This feature is most clearly described using the <code>==</code> "loose equal comparision" and <code>===</code> "strict equal comparision" operators.</li>
+                    </ul>
+                    So it's because every object created in JavaScript is stored in different space and indexed differently, that they are not strictly equal even if their content are the same. In this case using the <code>==</code> will be easier for you. 
+                    <br>But to make more use of it and avoid unexpected results, maybe learning more about Type Coercion in JavaScript will help!
                 </div>
             </section>
             <section class="main-section">
-                <header class='section-header'>
-
+                <header class='section-header' id="type-coercion">
+                    So what is "Type Coercion"?
                 </header>
                 <div class="header-div"></div>
                 <div class="content-block">
+                    Glad you asked!
                     
                 </div>
             </section>
