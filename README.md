@@ -11,6 +11,7 @@ Aside from the standard requirement, I will try to add in a few more features in
 Update Apr-14:
 Project's primary goal completeled.
 Features for sampling include:
+- :root and custom CSS variables
 - @media structure for wider viewport (yes, webdev should always start from mobile view, got it now, everything is ways neater)
 - grid-template-areas (note: CSS does NOT hoist like JS, so put your @media at the lowest or (maybe) in a separate stylesheet)
 - <code> element and inline-styling
