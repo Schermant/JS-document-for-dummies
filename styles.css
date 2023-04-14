@@ -1,0 +1,191 @@
+:root {
+    --font-fallback: "BlinkMacSystemFont","Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    --font-heading: "Times New Roman",var(--font-fallback);
+    --font-body: "Inter",var(--font-fallback);
+}
+
+
+* {
+    box-sizing: border-box;   
+}
+
+body {
+    display: grid;
+    grid-template-areas: 
+    "navbar"
+    "main";
+    grid-template-columns: auto;
+    grid-gap: 5px;
+    margin: 0;
+}
+
+
+#navbar {
+    grid-area: navbar;
+    position: sticky;
+    top: 0;
+    background-color: white;
+}
+
+main {
+    grid-area: main;
+}
+
+
+header {
+    font-size: x-large;
+    padding: 5px 0 5px 5px;
+}
+
+#navbar-header {
+    font-size: x-large;
+    height: fit-content;
+}
+
+#navbar-header p {
+    margin: auto 0;
+    text-align: center;
+    padding-top: 2px;
+    font-weight: 700;
+    font-style: oblique;
+}
+
+#navbar-list {
+    padding-inline: 2px;
+    margin: 0;
+    height: 97px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-bottom: gray solid 3px;
+    border-radius: 10px;
+}
+#navbar-list a {
+    text-decoration: unset;
+}
+.nav-li {
+    list-style: none;
+    display: block;
+    height: fit-content;
+    text-align: center;
+    text-decoration: unset;
+    color: black;
+    line-height: 30px;
+    font-size: 1em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.div {
+    height: 1px;
+    background-color: gray;
+    margin: 0;
+    border: gray 1px solid;
+}
+
+.nav {
+    position: relative;
+    width: 100%; 
+}
+.nav:last-of-type {
+    visibility: hidden;
+}
+
+.content-block {
+    padding: 10px 8px 10px;
+    font-family: var(--font-body);
+    
+}
+
+.emoji {
+    font-size: larger;
+    font-weight: 800;
+}
+
+code {
+    font-size: larger;
+    background-color: lightgray;
+    border-radius: 2px;
+    padding: 1px 3px 1px;
+}
+
+.code-block {
+    display: block;
+    background-color: lightgray;
+    margin: 20px 20px 0 10px;
+    padding: 10px 20px 10px;
+    border-radius: 8px;
+    line-height: 1.3rem;
+}
+
+li:not(:first-of-type) {
+    margin-top: 25px;
+}
+
+.external-link {
+    color: black;
+}
+
+.external-link:hover {
+    color: blue;
+}
+
+.code-comment {
+    color: darkgreen;
+}
+
+@media only screen and (width >= 600px) {
+    body {
+        display: grid;
+        grid-template-columns: 200px auto;
+        grid-template-areas: 
+        "navbar  main"
+        "navbar  main";
+    }
+    #navbar {
+        position: sticky;
+        top: 0;
+        width: 100%;
+        min-width: fit-content;
+        align-self: start;
+        border-right: 3px solid darkgray;
+        height: 100vh;
+    }
+    #navbar-header {
+        height: 70px;
+        padding: 5px;
+    }
+    #navbar-header p {
+        align-self: left;
+        padding: auto 0;
+    }
+    #navbar-list {
+        position: relative;
+        bottom: 0;
+        padding-inline: 2px;
+        margin: 0 auto;
+        padding: 0;
+        height: calc(100vh - 70px);
+        overflow-y: auto;
+        border-bottom: none;
+    }
+    #navbar-list a {
+        text-decoration: unset;
+    }
+    .nav-li {
+        list-style: none;
+        display: flex;
+        height: 50px;
+        text-align: left;
+        color: black;
+        margin: 5px 0;
+        line-height: 1.5em;
+        padding-left: 5px;
+        align-items: center;
+        font-size: 1.1em;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .nav:last-of-type {
+        visibility: visible;
+    }
+}

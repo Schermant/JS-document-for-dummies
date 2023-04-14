@@ -7,30 +7,36 @@
         <title>JavaScript tips for Dummies</title>
     </head>
     <body>
-        <nav>
-            <header id="nav-header">
-                JS Tips for Dummies
-            </header>
-            <ul>
-                <li class="nav-li" id="operator">Let's start with operators!</li>
-                <li class="nav-li" id="data-position">Why ['foo'] is not equal to ['foo']?</li>
-                <li class="nav-li" id="type-coercion">So what is "Type Coercion"?</li>
-                <li class="nav-li"></li>
-                <li class="nav-li"></li>
-            </ul>
+        <nav id="navbar">
+                <header id="navbar-header">
+                    <p>JavaScript Tips for Dummies</p>
+                 </header>
+                <div class="header div"></div>
+                <ul id="navbar-list">
+                    <a class='nav-link' href="#ternary_operator"><li class="nav-li" for="ternary_operator">Ternary operator</li></a>
+                    <div class="small nav div"></div>
+                    <a class='nav-link' href="#object_identity"><li class="nav-li" for="object_identity">Object identity</li></a>
+                    <div class="small nav div"></div>
+                    <a class='nav-link' href="#type_coercion"><li class="nav-li" for="type_coercion">Type coercion</li></a>
+                    <div class="small nav div"></div>
+                    <a class='nav-link' href="#arrow_function_expressions"><li class="nav-li" for="arrow_function_expressions">Arrow function expressions</li></a>
+                    <div class="small nav div"></div>
+                    <a class='nav-link' href="#reference"><li class="nav-li" for="reference">Reference</li></a>
+                    <div class="small nav div"></div>
+                </ul>
         </nav>
         <main id="main-doc">
-            <section class="main-section" id="operator">
+            <section class="main-section" id="ternary_operator">
                 <header class='section-header'>
-                    Let's start with operators!
+                    Ternary operator
                 </header>
-                <div class="header-div"></div>
+                <div class="header div"></div>
                 <div class="content-block">
                     <p>You should be comfortable using the <code>&&</code> and <code>||</code> logic operators by now, but do you know that there is an operator for boolean logic (in more familiar terms, "if else") as well?
-                    <br>Called a "ternary operator", it's the only operator that takes in 3 operands, using the question mark (?) in place of "if". Its syntax is as follow:
-                    <br><code>var varName = boolean ? value if true : value if false</code>
-                    <br>And it can also chain, just like our ol' if-else! So something like:
-                    <br><code>
+                    <br>Called a "ternary operator", it's the only operator that takes in 3 operands, using the question mark (?) in place of "if". Its syntax is as follow:</p>
+                    <code class="code-block">var varName = boolean ? value if true : value if false</code>
+                    <p>And it can also chain, just like our ol' if-else! So something like:</p>
+                    <code class="code-block">
                         const mark;
                         <br>const eval = (mark) => if(mark > 5) {
                         <br>"Above average"
@@ -40,67 +46,122 @@
                         <br>"Below average"    
                         <br>}
                     </code>
-                    <br> will become:
-                    <br><code>
+                    <p> will become:</p>
+                    <code class="code-block">
                         const mark;
                         <br>const eval = mark > 5 ? "Above average" : mark == 5 ? "Average" : "Below average";
                     </code>
-                    <br>which is ways more clean and efficient!
-                    <br><span class="emoji">&#9888;</span> Though convenient, there is a limitation for this operator: What it does after checking the boolean argument is returning the corresponding value, so if you put a full function or object it may not return what you want it to, so make sure to check!
-                    </p>
+                    <p>which is ways more clean and efficient!</p>
+                    <p><span class="emoji" style= "color: red;">&#9888;</span> Though convenient, there is a limitation for this operator: What it does after checking the boolean argument is returning the corresponding value, so if you put a full function or object it may not return what you want it to, so make sure to check!</p>
                 </div>
             </section>
-            <section class="main-section">
-                <header class='section-header' id="data-position">
-                    Why ['foo'] is not equal to ['foo']?
+            <section class="main-section" id="object_identity">
+                <header class='section-header'>
+                    Object identity
                 </header>
-                <div class="header-div"></div>
+                <div class="header div"></div>
                 <div class="content-block">
-                    Have you ever code something along the lines of:
-                    <br>
-                    <code>const arr1 = [];
+                    <p>Have you ever code something along the lines of:</p>
+                    <code class="code-block">const arr1 = [];
                         <br>if (arr1 === []) {
                         <br>return "Hello world!";
                         <br>}
                     </code>
-                    <br>and got confused as to why it doesn't run like you'd like it to? Then you fiddled around a bit and found out that things get even weirder:
-                    <code>
-                        <br>arr1 == [] //false
-                        <br>arr1 == "" //true
+                    <p>and got confused as to why it doesn't run like you'd like it to? Then you fiddled around a bit and found out that things get even weirder:</p>
+                    <code class="code-block">
+                        arr1 == [] <span class='code-comment'>//false</span>
+                        <br>arr1 == "" <span class='code-comment'>//true</span>
                     </code>
-                    <br>This is because of two features of JavaScript: Object identity and Type Coercion.
+                    <p>This is because of two features of JavaScript: Object identity and Type Coercion.</p>
                     <ul>
                         <li class="content">Object identity: The content of an object, when created, are stored at a specific location in the storage space, which makes it distincts from other objects that have the same content, this is called the "identity" of an object. </li>
                         <li class="content">Type Coercion: Is the process of converting value from one type to another, with is done automatically by the language in certain circumstances. This feature is most clearly described using the <code>==</code> "loose equal comparision" and <code>===</code> "strict equal comparision" operators.</li>
                     </ul>
-                    So it's because every object created in JavaScript is stored in different space and indexed differently, that they are not strictly equal even if their content are the same. In this case using the <code>==</code> will be easier for you. 
-                    <br>But to make more use of it and avoid unexpected results, maybe learning more about Type Coercion in JavaScript will help!
+                    <p>So it's because every object created in JavaScript is stored in different space and indexed differently, that they are not strictly equal even if their content are the same. In this case using the <code>==</code> will be easier for you.
+                    <br>But to make more use of it and avoid unexpected results, maybe learning more about Type Coercion in JavaScript will help!</p>
                 </div>
             </section>
-            <section class="main-section">
-                <header class='section-header' id="type-coercion">
-                    So what is "Type Coercion"?
-                </header>
-                <div class="header-div"></div>
-                <div class="content-block">
-                    Glad you asked!
-                    
-                </div>
-            </section>
-            <section class="main-section">
+            <section class="main-section" id="type_coercion">
                 <header class='section-header'>
-
+                    Type coercion
                 </header>
-                <div class="header-div"></div>
+                <div class="header div"></div>
                 <div class="content-block">
-                    
+                    <p>First thing to notice from the name: "type coercion" implies a conversion of the data type of a value to another data type. So what makes it different from the literal "type conversion" shown below?</p>
+                    <code class="code-block">const string = "5";
+                        <br>const number = 5;
+                        <br> const sum = Number(string) + number; <SPAN CLASS='code-comment'>//sum returns 10;</SPAN>
+                    </code>
+                    <p>As you can see, here we explicitly convert a string value into a number, but what would happen when you didn't convert it?</p>
+                    <code class="code-block">const string = "5";
+                        <br>const number = 5;
+                        <br> const sum = string + number; <SPAN CLASS='code-comment'>//sum returns 55;</SPAN>
+                    </code>
+                    <p>Now the one that got converted is the number variable instead. That implicit conversion is what we called "type coercion". It's there when you do any operation with variables with different data types without converting them yourself.</p>
+                    <p>Type coercion is helpful in some cases like trusty value checking or string manipulation, but more often than not you will get unexpected results if you ignore or don't fully understand its features. So checking this <a class="external-link" target='_blank' href='https://www.freecodecamp.org/news/js-type-coercion-explained-27ba3d9a2839/'>article</a> by freeCodeCamp is highly recommended.</p>
+                    <p><span class="emoji" style= "color: blue; font-size: x-large;">&#8505;</span> Do you know that primitive type data can only be converted into either string type, numeric type, or boolean type?</p>
                 </div>
             </section>
-            <section class="main-section">
+            <section class="main-section" id="arrow_function_expressions">
                 <header class='section-header'>
-
+                    Arrow function expressions
                 </header>
-                <div class="header-div"></div>
+                <div class="header div"></div>
+                <div class="content-block">
+                    <p>You have probably noticed the arrow function being used a lot in technical documents like this one. It's a more compact alternative to traditional function expression, in exchange of some deliberate limitations.</p>
+                    <p>First, to let you become more familiar with it, this is how you convert a traditional anonymous function expression into an arrow function, each step is a valid arrow function:</p>
+                    <code class="code-block">
+                        <span class='code-comment'>// Traditional anonymous function</span>
+                        <br>(function (a) {
+                        <br>return a + 100;
+                        <br>});
+                        <br>
+                        <br><span class='code-comment'>// 1. Remove the word "function" and place arrow between the argument and opening body bracket</span>
+                        <br>(a) => {
+                        <br>  return a + 100;
+                        <br>};
+                        <br>
+                        <br><span class='code-comment'>// 2. Remove the body braces and word "return" — the return is implied.</span>
+                        <br>(a) => a + 100;
+                        <br>
+                        <br><span class='code-comment'>// 3. Remove the parameter parentheses</span>
+                        <br>a => a + 100;
+                    </code>
+                    <p>As you can see, the arrow function allows for the abbreviation of simpler functions by a large margin. Yet, in order to do so, it needs to compromise with a few limitations:</p>
+                    <ul>
+                        <li>The parentheses can only be omitted if the function has a single simple parameter. If it has multiple parameters, no parameters, or default, destructured, or rest parameters, the parentheses around the parameter list are required.
+                            <code class="code-block">
+                                (a, b) => a + b + 100; <SPAN CLASS='code-comment'>//multiple parameters</SPAN>
+                                <br>() => a + b + 100; <SPAN CLASS='code-comment'>//no parameter</SPAN>
+                            </code>
+                        </li>
+                        <li>The braces can only be omitted if the function directly returns an expression. If the body has additional lines of processing, the braces are required — and so is the <code>return</code> keyword.
+                            <code class="code-block">
+                                (a, b) => {
+                                <br>const chuck = 42;
+                                <br>return a + b + chuck;
+                                <br>}; 
+                            </code>
+                        </li>    
+                        <li>Arrow functions are always unnamed. If the arrow function needs to call itself, use a named function expression instead. You can also assign the arrow function to a variable so it has a name.
+                            <code class="code-block">
+                                const bob2 = (a) => a + 100;
+                            </code>
+                        </li>
+                    </ul>
+                    <span class="emoji" style= "color: red;">&#9888;</span> One more thing: the arrow function is considered a variable, not a proper function expression, so it will not be hoisted, which means you will have to always make sure to place them at the top of your codes. This also makes any "this" operator you use in this function to not register it as an object, and instead referring to its parent object.
+                </div>
+            </section>
+            <section class="main-section" id="reference">
+                <header class='section-header'>
+                    Reference
+                </header>
+                <div class="header div"></div>
+                    <ul>
+                        <li><a class="external-link" target='_blank' for="type_coercion" href='https://www.freecodecamp.org/news/js-type-coercion-explained-27ba3d9a2839/'>freeCodeCamp</a> article explaining JavaScript type coercion</li>
+                        <li><a class="external-link" target='_blank' for="arrow_function_expressions" href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions'>MDN</a> document on arrow function expressions</li>
+                        <li><a class="external-link" target='_blank' for="conditional-operator" href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_operator'>MDN</a> document on conditional (ternary) operator</li>
+                    </ul>
                 <div class="content-block">
                     
                 </div>
